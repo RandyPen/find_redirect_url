@@ -55,7 +55,7 @@ async def get_final_url(session, url):
 
 async def process_url(url, data, session):
     final_domain = await get_final_url(session, url)
-    if final_domain and final_domain != url and final_domain not in data['allowlist']:
+    if final_domain and final_domain != url and final_domain not in data['allowlist'] and final_domain not in data['blocklist']:
         print("Redirected domain", final_domain)
         new_data["blocklist"].append(final_domain)
 
